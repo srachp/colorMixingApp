@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+    <title>Color Mixer</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    </br>
+    </br>
+    <h1> Select two colors to mix them! </h1>
+    </br>
+    </br>
+
+    <form action="/mixcolors" method="POST">
+      <fieldset>
+        <div class="form-group">
+          <div class="btn-group" role="group">
+            <label for="colorSelect1" style="width:100px; text-align: center;">
+              <h5>Color 1:</h5>
+            </label>
+            <select class="select-control-1" name="color1" style="width:200px" id="colorSelect1">
+              <option value="" selected disabled hidden>Select</option>
+              <option>Red</option>
+              <option>Green</option>
+              <option>Blue</option>
+              <option>Black</option>
+              <option>White</option>
+              <option>Lime</option>
+              <option>Yellow</option>
+              <option>Aqua</option>
+              <option>Magenta</option>
+              <option>Silver</option>
+              <option>Gray</option>
+              <option>Maroon</option>
+              <option>Olive</option>
+              <option>Purple</option>
+              <option>Teal</option>
+              <option>Navy</option>
+            </select>
+
+            <label for="colorSelect2" style="width:100px; text-align: center;">
+              <h5>Color 2:</h5>
+            </label>
+            <select class="select-control-2"  name="color2" style="width:200px" id="colorSelect2">
+              <option value="" selected disabled hidden>Select</option>
+              <option>Red</option>
+              <option>Green</option>
+              <option>Blue</option>
+              <option>Black</option>
+              <option>White</option>
+              <option>Lime</option>
+              <option>Yellow</option>
+              <option>Aqua</option>
+              <option>Magenta</option>
+              <option>Silver</option>
+              <option>Gray</option>
+              <option>Maroon</option>
+              <option>Olive</option>
+              <option>Purple</option>
+              <option>Teal</option>
+              <option>Navy</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Mix colors</button>
+        </div>
+        
+      </fieldset>
+    </form>
+
+    </br>
+    </br>
+    <div class="colorResult">
+      <h4> Resultant color:</h4>
+      <div class="center" id="resultColorBox" style="width:150px; padding: 10px; border: 1px solid black;"></div>
+      <p>({{ color1 }} + {{ color2 }})</p>
+    </div>
+          
+    <script>
+      document.getElementById('resultColorBox').style.height='70px';
+      document.getElementById('resultColorBox').style.backgroundColor='{{ hex_color }}';
+    </script>
+    
+    {% endblock %}
+  </body>
+</html>
